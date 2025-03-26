@@ -108,4 +108,4 @@ This script will:
 
 **Edwin Rivera**  
 [GitHub](https://github.com/EdwinRivera04)  
-[LinkedIn](https://www.linkedin.com/in/edwin-rivera04/)
+[LinkedIn](https://www.linkedin.com/in/edwin-rivera1/)
