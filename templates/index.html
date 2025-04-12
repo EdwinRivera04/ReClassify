@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trash Classifier</title>
+    <style>
+        body { font-family: Arial; text-align: center; margin-top: 40px; }
+        img { max-width: 300px; margin-top: 20px; border: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+    <h1>Upload an Image to Classify Trash</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" required><br><br>
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if label %}
+        <h2>Prediction: {{ label }}</h2>
+        <img src="{{ img_path }}" alt="Uploaded Image">
+    {% endif %}
+</body>
+</html>
