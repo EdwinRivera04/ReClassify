@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sample Predictions</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            padding: 40px;
+            background-color: #f4f4f9;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 250px;
+        }
+
+        img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .labels {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sample Predictions</h1>
+    <div class="grid">
+        {% for img in sample_images %}
+        <div class="card">
+            <img src="/{{ img.path }}" alt="Sample Image">
+            <div class="labels">
+                True: {{ img.true }}<br>
+                Predicted: {{ img.pred }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <br>
+    <a href="/">← Back to Home</a>
+</body>
+</html>

@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import cv2
 import os
+import pickle
 
 # Settings
 DATASET_DIR = 'TrashNet'
@@ -69,6 +70,25 @@ print(classification_report(y_test, y_pred, target_names=CATEGORIES))
 # Predict and evaluate
 y_pred = clf.predict(X_test)
 print(classification_report(y_test, y_pred, target_names=CATEGORIES))
+
+stats = {
+    "best_params": grid.best_params_,
+    "report": classification_report(y_test, y_pred, target_names=CATEGORIES, output_dict=False)
+}
+
+# Save test data and predictions
+with open('model/sample_test_data.pkl', 'wb') as f:
+    pickle.dump({
+        'X_test': X_test,
+        'y_test': y_test,
+        'img_test': img_test,
+        'y_pred': y_pred
+    }, f)
+
+with open('model/eval_stats.txt', 'w') as f:
+    f.write("Best Parameters Found:\n")
+    f.write(str(stats["best_params"]) + "\n\n")
+    f.write(stats["report"])
 
 # Visualize some predictions
 def show_sample_predictions():
